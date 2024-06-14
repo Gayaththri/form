@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import {
   IoIosArrowUp,
   IoIosArrowDown,
@@ -9,7 +9,6 @@ export default function PhoneNumberPage() {
   const [phoneNumber, setPhoneNumber] = useState("");
   const [countryCode, setCountryCode] = useState("");
   const [countryFlag, setCountryFlag] = useState("");
-  const [countries, setCountries] = useState([]);
 
   useEffect(() => {
     const fetchPhoneNumberData = async () => {
@@ -20,12 +19,6 @@ export default function PhoneNumberPage() {
         }
         const data = await response.json();
         if (data && Array.isArray(data)) {
-          setCountries(
-            data.map((country) => ({
-              code: country.cca2,
-              flag: country.flags[0],
-            }))
-          );
           const randomIndex = Math.floor(Math.random() * data.length);
           const countryData = data[randomIndex];
           setCountryCode(countryData.cca2);
@@ -42,17 +35,6 @@ export default function PhoneNumberPage() {
     setPhoneNumber(e.target.value);
   };
 
-  const handleCountryChange = (e) => {
-    const selectedCountryCode = e.target.value;
-    setCountryCode(selectedCountryCode);
-    const selectedCountry = countries.find(
-      (country) => country.code === selectedCountryCode
-    );
-    if (selectedCountry) {
-      setCountryFlag(selectedCountry.flag);
-    }
-  };
-
   return (
     <div className="flex flex-col w-full md:flex-row p-[100px] items-center justify-center relative">
       <div className="w-full max-w-2xl md:w-1/2 md:pr-8 mb-8 md:mb-0">
@@ -61,7 +43,7 @@ export default function PhoneNumberPage() {
           <IoIosArrowRoundForward className="text-[#cf9fff] mr-2 text-sm inline-block" />
           What is your phone number?
         </h1>
-        <div className="mb-4 relative">
+        <div className="mb-4">
           <input
             type="tel"
             id="phoneNumber"
@@ -71,17 +53,6 @@ export default function PhoneNumberPage() {
             placeholder="Enter your phone number"
             className="border-b-[#cf9fff] text-[#cf9fff] border-b border-[#8000ff] rounded-none px-4 py-2 w-full focus:outline-none placeholder-[#f1e2ff] text-2xl caret-[#cf9fff]"
           />
-          <select
-            className="absolute inset-y-0 right-0 h-full border-l border-[#cf9fff] text-[#cf9fff] bg-[#8000ff] rounded-r-none px-4 py-2 focus:outline-none text-2xl caret-[#cf9fff]"
-            value={countryCode}
-            onChange={handleCountryChange}
-          >
-            {countries.map((country, index) => (
-              <option key={index} value={country.code}>
-                {country.code}
-              </option>
-            ))}
-          </select>
         </div>
 
         <div className="flex items-center space-x-4">
