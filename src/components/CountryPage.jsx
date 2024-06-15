@@ -1,18 +1,21 @@
 import { useState, useEffect } from "react";
-import {
-  IoIosArrowUp,
-  IoIosArrowDown,
-  IoIosArrowRoundForward,
-} from "react-icons/io";
+import { IoIosArrowRoundForward } from "react-icons/io";
 import PhoneNumberPage from "./PhoneNumberPage";
+import { SlArrowDown, SlArrowUp } from "react-icons/sl";
+import EmailPage from "./EmailPage";
 
 export default function CountryPage() {
   const [countries, setCountries] = useState([]);
   const [selectedCountry, setSelectedCountry] = useState("");
   const [showPhoneNumberPage, setShowPhoneNumberPage] = useState(false);
+  const [showEmailPage, setShowEmailPage] = useState(false);
+
+  const goToEmailPage = () => {
+    setShowEmailPage(true);
+  };
 
   const goToPhoneNumberPage = () => {
-    setShowPhoneNumberPage(true); // Set state to show CountryPage
+    setShowPhoneNumberPage(true);
   };
 
   useEffect(() => {
@@ -37,8 +40,10 @@ export default function CountryPage() {
 
   return (
     <div>
-      {showPhoneNumberPage ? ( // Conditionally render the CountryPage
+      {showPhoneNumberPage ? (
         <PhoneNumberPage />
+      ) : showEmailPage ? (
+        <EmailPage />
       ) : (
         <div className="flex flex-col w-full md:flex-row p-[100px] items-center justify-center relative">
           <div className="w-full max-w-2xl md:w-1/2 md:pr-8 mb-8 md:mb-0">
@@ -71,24 +76,25 @@ export default function CountryPage() {
             </div>
           </div>
 
-          <div className="absolute bottom-4 right-4 flex items-center space-x-2">
+          <div className="absolute bottom-4 right-4 flex items-center">
             <button
-              className="text-white hover:text-[#d6adff] transition-colors duration-300 p-2 bg-[#cf9fff] rounded-md"
-              onClick={() => window.scrollTo(0, 0)}
+              className="text-white hover:text-[#d6adff] transition-colors duration-300 p-2 bg-[#cf9fff] rounded-l-lg"
+              onClick={goToEmailPage}
             >
-              <IoIosArrowUp className="h-5 w-6" />
+              <SlArrowUp className="h-4 w-6" />
             </button>
+            <div className="border-r-[1.5px] border-[#aa72e3] h-8"></div>
             <button
-              className="text-white hover:text-[#d6adff] transition-colors duration-300 p-2 bg-[#cf9fff] rounded-md"
+              className="text-white hover:text-[#d6adff] transition-colors duration-300 p-2 bg-[#cf9fff] rounded-r-lg"
               onClick={goToPhoneNumberPage}
             >
-              <IoIosArrowDown className="h-5 w-6" />
+              <SlArrowDown className="h-4 w-6" />
             </button>
             <a
               href="https://www.typeform.com/"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-white hover:text-[#d6adff] transition-colors duration-300 px-4 py-2 bg-[#cf9fff] rounded-md"
+              className="text-white hover:text-[#d6adff] transition-colors duration-300 px-4 py-2 bg-[#cf9fff] rounded-md ml-2"
             >
               Powered by TypeForm
             </a>

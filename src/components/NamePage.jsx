@@ -1,10 +1,7 @@
 import { useState } from "react";
 import EmailPage from "./EmailPage";
-import {
-  IoIosArrowUp,
-  IoIosArrowDown,
-  IoIosArrowRoundForward,
-} from "react-icons/io";
+import { IoIosArrowRoundForward } from "react-icons/io";
+import { SlArrowDown, SlArrowUp } from "react-icons/sl";
 
 export default function NamePage() {
   const [showEmailPage, setShowEmailPage] = useState(false);
@@ -66,13 +63,14 @@ export default function NamePage() {
 
           <div className="absolute bottom-4 right-4 flex items-center">
             <button className="text-white p-2 bg-[#cf9fff] rounded-l-lg pointer-events-none">
-              <IoIosArrowUp className="h-5 w-6" />
+              <SlArrowUp className="h-4 w-6" />
             </button>
+            <div className="border-r-[1.5px] border-[#aa72e3] h-8"></div>
             <button
-              className="text-white hover:text-[#d6adff] transition-colors duration-300 p-2 bg-[#cf9fff] rounded-r-lg"
+              className="text-white hover:text-[#d6adff] transition-colors duration-300 p-2 bg-[#cf9fff] rounded-r-md"
               onClick={goToEmailPage}
             >
-              <IoIosArrowDown className="h-5 w-6" />
+              <SlArrowDown className="h-4 w-6 font-extrabold" />
             </button>
             <a
               href="https://www.typeform.com/"

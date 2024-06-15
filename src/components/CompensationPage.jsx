@@ -1,11 +1,8 @@
 import { useState } from "react";
-import {
-  IoIosArrowDown,
-  IoIosArrowRoundForward,
-  IoIosArrowUp,
-} from "react-icons/io";
+import { IoIosArrowRoundForward } from "react-icons/io";
 import compensationImage from "../assets/compensation.png";
 import StatementPage from "./StatementPage";
+import { SlArrowDown, SlArrowUp } from "react-icons/sl";
 
 export default function CompensationPage() {
   const [selectedCompensation, setSelectedCompensation] = useState("");
@@ -91,26 +88,33 @@ export default function CompensationPage() {
             </div>
           </div>
 
-          <div className="w-full md:w-1/2 h-full relative">
+          <div className="w-full md:w-1/2 flex justify-center md:justify-end">
             <img
               src={compensationImage}
               alt="Compensation"
-              className="h-full object-cover"
+              className="w-full md:w-3/4 object-cover"
             />
-            <div className="absolute bottom-4 right-4 flex items-center space-x-2">
-              <button
-                className="text-white hover:text-[#d6adff] transition-colors duration-300 p-2 bg-[#cf9fff] rounded-md"
-                onClick={() => window.scrollTo(0, 0)}
-              >
-                <IoIosArrowUp className="h-5 w-6" />
-              </button>
-              <button
-                className="text-white hover:text-[#d6adff] transition-colors duration-300 p-2 bg-[#cf9fff] rounded-md"
-                onClick={goToStatementPage}
-              >
-                <IoIosArrowDown className="h-5 w-6" />
-              </button>
-            </div>
+          </div>
+
+          <div className="absolute bottom-4 right-4 flex items-center">
+            <button className="text-white font-bold hover:text-[#d6adff] transition-colors duration-300 p-2 bg-[#cf9fff] rounded-l-md">
+              <SlArrowUp className="h-4 w-6" />
+            </button>
+            <div className="border-r-[1.5px] border-[#aa72e3] h-8"></div>
+            <button
+              className="text-white hover:text-[#d6adff] transition-colors duration-300 p-2 bg-[#cf9fff] rounded-r-md"
+              onClick={goToStatementPage}
+            >
+              <SlArrowDown className="h-4 w-6 font-extrabold" />
+            </button>
+            <a
+              href="https://www.typeform.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-white hover:text-[#d6adff] transition-colors duration-300 px-4 py-2 bg-[#cf9fff] rounded-md ml-2"
+            >
+              Powered by TypeForm
+            </a>
           </div>
         </div>
       )}
