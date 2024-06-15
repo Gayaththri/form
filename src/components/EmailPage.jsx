@@ -29,10 +29,10 @@ export default function EmailPage() {
             <h1 className="font-Lexe text-2xl mb-4 text-[#191b3a] flex items-center">
               <span className="text-[#cf9fff] text-sm">2 </span>
               <IoIosArrowRoundForward className="text-[#cf9fff] mr-2 text-sm inline-block" />
-              What's your email address?
+              Whats your email address?
             </h1>
             <p className="text-gray-500 text-xl mb-4">
-              This is how we'll contact you.
+              This is how well contact you.
             </p>
             <div className="mb-4">
               <input

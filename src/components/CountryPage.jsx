@@ -9,6 +9,7 @@ export default function CountryPage() {
   const [selectedCountry, setSelectedCountry] = useState("");
   const [showPhoneNumberPage, setShowPhoneNumberPage] = useState(false);
   const [showEmailPage, setShowEmailPage] = useState(false);
+  const [dropdownOpen, setDropdownOpen] = useState(false);
 
   const goToEmailPage = () => {
     setShowEmailPage(true);
@@ -34,8 +35,13 @@ export default function CountryPage() {
     fetchCountries();
   }, []);
 
-  const handleCountryChange = (e) => {
-    setSelectedCountry(e.target.value);
+  const handleCountryChange = (country) => {
+    setSelectedCountry(country);
+    setDropdownOpen(false);
+  };
+
+  const toggleDropdown = () => {
+    setDropdownOpen(!dropdownOpen);
   };
 
   return (
@@ -45,32 +51,42 @@ export default function CountryPage() {
       ) : showEmailPage ? (
         <EmailPage />
       ) : (
-        <div className="flex flex-col w-full md:flex-row p-[100px] items-center justify-center relative">
-          <div className="w-full max-w-2xl md:w-1/2 md:pr-8 mb-8 md:mb-0">
-            <h1 className="font-Lexe text-2xl mb-4 text-[#191b3a] flex items-center">
-              <span className="text-[#cf9fff] text-sm">3 </span>
-              <IoIosArrowRoundForward className="text-[#cf9fff] mr-2 text-sm inline-block" />
+        <div className="flex flex-col w-full md:flex-row pt-[150px] pr-[40px] items-center justify-center">
+          <div className="w-full max-w-2xl mb-2 md:mb-0">
+            <h1 className="font-Lexe text-2xl mb-8 text-[#191b3a]">
+              <span className="text-[#cf9fff] text-sm mr-1">3 </span>
+              <IoIosArrowRoundForward className="text-[#cf9fff] mr-2 text-sm inline-block size-6" />
               Which country are you from? 🏡🏡🏡
             </h1>
-            <div className="mb-4">
-              <select
-                id="country"
-                name="country"
-                value={selectedCountry}
-                onChange={handleCountryChange}
-                className="border-b-[#cf9fff] text-[#cf9fff] border-b border-[#8000ff] rounded-none px-4 py-2 w-full focus:outline-none placeholder-[#f1e2ff] text-2xl caret-[#cf9fff]"
+            <div className="mb-4 ml-[3rem] relative">
+              <div
+                className={`border-b-[#cf9fff] border-b border-[#8000ff] rounded-none px-4 py-2 w-full focus:outline-none placeholder-[#f1e2ff] text-3xl caret-[#cf9fff] cursor-pointer ${
+                  selectedCountry ? "text-[#cf9fff]" : "text-[#f1e2ff]"
+                }`}
+                onClick={toggleDropdown}
               >
-                <option value="">Select or type your country</option>
-                {countries.map((country, index) => (
-                  <option key={index} value={country.name}>
-                    {country.name}
-                  </option>
-                ))}
-              </select>
+                {selectedCountry || "Type or select an option"}
+              </div>
+              {dropdownOpen && (
+                <ul className="absolute z-10 w-full bg-white border border-[#cf9fff] max-h-60 overflow-y-auto mt-2 rounded-md">
+                  {countries.map((country, index) => (
+                    <li
+                      key={index}
+                      className="px-4 py-2 text-xl text-[#cf9fff] border-b border-[#cf9fff] cursor-pointer hover:bg-[#f1e2ff]"
+                      onClick={() => handleCountryChange(country.name)}
+                    >
+                      {country.name}
+                    </li>
+                  ))}
+                </ul>
+              )}
             </div>
 
-            <div className="flex items-center space-x-4">
-              <button className="bg-[#cf9fff] hover:bg-[#d6adff] text-white px-4 py-2 rounded-md transition duration-300 font-bold">
+            <div className="flex items-center space-x-4 ml-[3.5rem]">
+              <button
+                className="bg-[#cf9fff] hover:bg-[#d6adff] text-white px-4 py-2 rounded-md transition duration-300 font-bold"
+                onClick={goToPhoneNumberPage}
+              >
                 OK
               </button>
             </div>
