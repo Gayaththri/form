@@ -9,7 +9,7 @@ export default function LanguagePage() {
     useState(false);
 
   const goToCodingExperiencePage = () => {
-    setShowCodingExperiencePage(true); // Set state to show CountryPage
+    setShowCodingExperiencePage(true);
   };
 
   const handleLanguageChange = (language) => {
@@ -20,12 +20,14 @@ export default function LanguagePage() {
     );
   };
 
+  const alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
+
   return (
     <div>
-      {showCodingExperiencePage ? ( // Conditionally render the CountryPage
+      {showCodingExperiencePage ? (
         <CodingExperiencePage />
       ) : (
-        <div className="flex flex-col w-full md:flex-row p-[100px] items-center justify-center relative">
+        <div className="flex flex-col w-full md:flex-row pt-[100px] pr-[55px] items-center justify-center">
           <div className="w-full max-w-2xl md:w-1/2 md:pr-8 mb-8 md:mb-0">
             <h1 className="font-Lexe text-2xl mb-4 text-[#191b3a] flex items-center">
               <span className="text-[#cf9fff] text-sm">5 </span>
@@ -57,15 +59,28 @@ export default function LanguagePage() {
                 "R",
                 ".NET",
                 "Other",
-              ].map((language) => (
+              ].map((language, index) => (
                 <label
                   key={language}
-                  className={`flex items-center text-[#cf9fff] mb-1 border border-[#cf9fff] rounded-md p-2 ${
-                    selectedLanguages.includes(language) ? "bg-[#cf9fff]" : ""
+                  className={`flex items-center text-xl text-[#cf9fff] bg-[#faf5ff] border border-[#cf9fff] rounded-md p-2 hover:bg-[#f1e2ff] cursor-pointer ${
+                    selectedLanguages.includes(language)
+                      ? "bg-[#cf9fff] border-[#aa72e3]"
+                      : ""
                   }`}
                   onClick={() => handleLanguageChange(language)}
                 >
-                  <span className="ml-2">{language}</span>
+                  <span className="text-sm border border-[#cf9fff] rounded-sm mr-2 px-[5px] bg-white">
+                    <span
+                      className={
+                        selectedLanguages.includes(language)
+                          ? " text-white bg-[#aa72e3]"
+                          : ""
+                      }
+                    >
+                      {alphabet[index]}
+                    </span>
+                  </span>
+                  <span className="ml-1">{language}</span>
                 </label>
               ))}
             </div>
