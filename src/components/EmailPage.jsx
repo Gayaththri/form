@@ -1,4 +1,4 @@
-import { useState } from "react"; // Import useState for navigation
+import { useState } from "react"; 
 import CountryPage from "./CountryPage";
 import {
   IoIosArrowUp,
@@ -10,12 +10,12 @@ export default function EmailPage() {
   const [showCountryPage, setShowCountryPage] = useState(false);
 
   const goToCountryPage = () => {
-    setShowCountryPage(true); // Set state to show CountryPage
+    setShowCountryPage(true); 
   };
 
   return (
     <div>
-      {showCountryPage ? ( // Conditionally render the CountryPage
+      {showCountryPage ? ( 
         <CountryPage />
       ) : (
         <div className="flex flex-col w-full md:flex-row p-[100px] items-center justify-center">
