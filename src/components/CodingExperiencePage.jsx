@@ -20,7 +20,7 @@ export default function CodingExperiencePage() {
       {showCompensationPage ? (
         <CompensationPage />
       ) : (
-        <div className="flex flex-col w-full md:flex-row p-[100px] items-center justify-center relative">
+        <div className="flex flex-col w-full md:flex-row pt-[100px] pr-[55px] items-center justify-center">
           <div className="w-full max-w-2xl md:w-1/2 md:pr-8 mb-8 md:mb-0">
             <h1 className="font-Lexe text-2xl mb-4 text-[#191b3a] flex items-center">
               <span className="text-[#cf9fff] text-sm">6 </span>
@@ -32,30 +32,43 @@ export default function CodingExperiencePage() {
               {[
                 {
                   id: "A",
-                  text: "No experience (I have never programmed before.)",
+                  text: "A. No experience (I have never programmed before.)",
                 },
                 {
                   id: "B",
-                  text: "Beginner (I have played with some introductory coding lessons and tutorials.)",
+                  text: "B. Beginner (I have played with some introductory coding lessons and tutorials.)",
                 },
                 {
                   id: "C",
-                  text: "Intermediate (I have completed some coding classes or tutorials.)",
+                  text: "C. Intermediate (I have completed some coding classes or tutorials.)",
                 },
-                { id: "D", text: "Advanced (I can build applications.)" },
+                { id: "D", text: "D. Advanced (I can build applications.)" },
                 {
                   id: "E",
-                  text: "Professional (I am an experienced software engineer.)",
+                  text: "E. Professional (I am an experienced software engineer.)",
                 },
               ].map((option) => (
                 <label
                   key={option.id}
-                  className={`flex items-center text-[#cf9fff] mb-1 border border-[#cf9fff] rounded-md p-2 cursor-pointer ${
-                    selectedLevel === option.id ? "bg-[#cf9fff]" : ""
+                  className={`flex items-center text-xl text-[#cf9fff] bg-[#faf5ff] border border-[#cf9fff] rounded-md p-2 hover:bg-[#f1e2ff] cursor-pointer ${
+                    selectedLevel === option.id
+                      ? "bg-[#cf9fff] border-[#aa72e3]"
+                      : ""
                   }`}
                   onClick={() => handleLevelChange(option.id)}
                 >
-                  <span>{option.text}</span>
+                  <span className="text-sm border border-[#cf9fff] rounded-sm mr-2 px-[5px] bg-white">
+                    <span
+                      className={
+                        selectedLevel === option.id
+                          ? "text-white bg-[#aa72e3]"
+                          : ""
+                      }
+                    >
+                      {option.id}
+                    </span>
+                  </span>
+                  <span className="ml-1">{option.text}</span>
                 </label>
               ))}
             </div>
