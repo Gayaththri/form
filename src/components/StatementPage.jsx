@@ -67,14 +67,14 @@ export default function StatementPage() {
                   }`}
                   onClick={() => handleAcceptanceChange(option.id)}
                 >
-                  <span className="text-sm border border-[#cf9fff] rounded-sm mr-2 px-[5px] bg-white">
-                    <span
-                      className={
-                        accepted === option.id ? " text-white bg-[#aa72e3]" : ""
-                      }
-                    >
-                      {option.id}
-                    </span>
+                  <span
+                    className={`${
+                      accepted === option.id
+                        ? " text-white text-sm border border-[#cf9fff] rounded-sm mr-2 px-[5px] bg-[#cf9fff]"
+                        : "text-sm border border-[#cf9fff] rounded-sm mr-2 px-[5px] bg-white"
+                    }`}
+                  >
+                    {option.id}
                   </span>
                   <span>{option.text}</span>
                 </label>

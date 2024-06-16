@@ -77,16 +77,14 @@ export default function LanguagePage() {
                   }`}
                   onClick={() => handleLanguageChange(language)}
                 >
-                  <span className="text-sm border border-[#cf9fff] rounded-sm mr-2 px-[5px] bg-white">
-                    <span
-                      className={
-                        selectedLanguages.includes(language)
-                          ? " text-white bg-[#aa72e3]"
-                          : ""
-                      }
-                    >
-                      {alphabet[index]}
-                    </span>
+                  <span
+                    className={
+                      selectedLanguages.includes(language)
+                        ? "text-white text-sm border border-[#cf9fff] rounded-sm mr-2 px-[5px] bg-[#cf9fff]"
+                        : "text-[#cf9fff] text-sm border border-[#cf9fff] rounded-sm mr-2 px-[5px] bg-white"
+                    }
+                  > 
+                    {alphabet[index]}
                   </span>
                   <span className="ml-1">{language}</span>
                 </label>
