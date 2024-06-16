@@ -11,11 +11,13 @@ export default function WelcomePage() {
   };
 
   return (
-    <div>
-      {showNamePage ? (
-        <NamePage />
-      ) : (
-        <div className="flex flex-col w-full md:flex-row pt-[140px] pr-[35px] items-center justify-center">
+    <div className="relative overflow-hidden">
+      <div
+        className={`${
+          showNamePage ? "opacity-0" : "opacity-100"
+        } transition-opacity duration-500 ease-out`}
+      >
+        <div className="flex flex-col w-full md:flex-row pt-[140px] pr-[35px] pl-[18px] items-center justify-center">
           <div className="max-w-2xl md:w-1/2 mb-8 md:mb-0">
             <h1 className="font-Lexe text-4xl font-bold mb-4 text-[#191b3a]">
               Launch your Data Career in <br /> Weeks, not Years{" "}
@@ -38,7 +40,7 @@ export default function WelcomePage() {
               >
                 <h1 className="font-bold text-2xl">Start Your Journey</h1>
               </button>
-              <p className="text-sm text-[#191b33]">press Enter ↵</p>
+              <p className="text-xs text-[#191b33]">press Enter ↵</p>
             </div>
             <div className="flex items-center mt-2">
               <FaUserFriends className="mr-2 text-xs" />
@@ -54,7 +56,14 @@ export default function WelcomePage() {
             />
           </div>
         </div>
-      )}
+      </div>
+      <div
+        className={`absolute top-0 left-0 w-full h-full ${
+          showNamePage ? "" : "translate-y-full"
+        }`}
+      >
+        {showNamePage && <NamePage />}
+      </div>
     </div>
   );
 }

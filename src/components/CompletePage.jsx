@@ -3,7 +3,6 @@ import { FaFacebookF } from "react-icons/fa6";
 import { FaLinkedinIn } from "react-icons/fa";
 
 export default function CompletePage() {
-  // Add overflow-hidden class to the body to remove scroll
   document.body.classList.add("overflow-hidden");
 
   return (

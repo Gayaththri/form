@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from "react";
 import { IoIosArrowRoundForward } from "react-icons/io";
 import LanguagePage from "./LanguagePage";
 import { SlArrowDown, SlArrowUp } from "react-icons/sl";
+import CountryPage from "./CountryPage";
 
 export default function PhoneNumberPage() {
   const [phoneNumber, setPhoneNumber] = useState("");
@@ -10,6 +11,11 @@ export default function PhoneNumberPage() {
   const [showLanguagePage, setShowLanguagePage] = useState(false);
   const dropdownRef = useRef(null);
   const [dropdownOpen, setDropdownOpen] = useState(false);
+  const [showCountryPage, setShowCountryPage] = useState(false);
+
+  const goToCountryPage = () => {
+    setShowCountryPage(true);
+  };
 
   const goToLanguagePage = () => {
     setShowLanguagePage(true);
@@ -66,6 +72,8 @@ export default function PhoneNumberPage() {
     <div>
       {showLanguagePage ? (
         <LanguagePage onNextPage={undefined} />
+      ) : showCountryPage ? (
+        <CountryPage />
       ) : (
         <div className="flex flex-col w-full md:flex-row pt-[150px] pr-[40px] items-center justify-center">
           <div className="w-full max-w-2xl mb-2 md:mb-0">
@@ -82,7 +90,7 @@ export default function PhoneNumberPage() {
                       className="w-10 h-8 inline-block"
                     />
                     <SlArrowDown
-                      className="text-[#cf9fff] text-sm inline-block ml-1" // Adjusted the spacing here
+                      className="text-[#cf9fff] text-sm inline-block ml-1"
                       onClick={handleToggleDropdown}
                     />
                   </>
@@ -139,13 +147,17 @@ export default function PhoneNumberPage() {
             </div>
           </div>
 
-          <div className="absolute bottom-4 right-4 flex items-center">
-            <button className="text-white font-bold hover:text-[#d6adff] transition-colors duration-300 p-2 bg-[#cf9fff] rounded-l-lg">
+          {/*Footer */}
+          <div className="fixed bottom-0 right-0 flex items-center w-full justify-end p-4">
+            <button
+              className="text-white font-bold hover:text-[#d6adff] transition-colors duration-300 p-2 bg-[#cf9fff] rounded-l-md"
+              onClick={goToCountryPage}
+            >
               <SlArrowUp className="h-4 w-6" />
             </button>
             <div className="border-r-[1.5px] border-[#aa72e3] h-8"></div>
             <button
-              className="text-white hover:text-[#d6adff] transition-colors duration-300 p-2 bg-[#cf9fff] rounded-r-lg"
+              className="text-white hover:text-[#d6adff] transition-colors duration-300 p-2 bg-[#cf9fff] rounded-r-md"
               onClick={goToLanguagePage}
             >
               <SlArrowDown className="h-4 w-6 font-extrabold" />

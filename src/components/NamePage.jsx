@@ -61,8 +61,9 @@ export default function NamePage() {
             </div>
           </div>
 
-          <div className="absolute bottom-4 right-4 flex items-center">
-            <button className="text-white p-2 bg-[#cf9fff] rounded-l-lg pointer-events-none">
+          {/*Footer */}
+          <div className="fixed bottom-0 right-0 flex items-center w-full justify-end p-4">
+            <button className="text-white font-bold p-2 bg-[#cf9fff] rounded-l-md pointer-events-none">
               <SlArrowUp className="h-4 w-6" />
             </button>
             <div className="border-r-[1.5px] border-[#aa72e3] h-8"></div>

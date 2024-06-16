@@ -2,13 +2,19 @@ import { useState } from "react";
 import { IoIosArrowRoundForward } from "react-icons/io";
 import CompensationPage from "./CompensationPage";
 import { SlArrowDown, SlArrowUp } from "react-icons/sl";
+import LanguagePage from "./LanguagePage";
 
 export default function CodingExperiencePage() {
   const [selectedLevel, setSelectedLevel] = useState("");
   const [showCompensationPage, setShowCompensationPage] = useState(false);
+  const [showLanguagePage, setShowLanguagePage] = useState(false);
 
   const goToCompensationPage = () => {
     setShowCompensationPage(true);
+  };
+
+  const goToLanguagePage = () => {
+    setShowLanguagePage(true);
   };
 
   const handleLevelChange = (level) => {
@@ -19,6 +25,8 @@ export default function CodingExperiencePage() {
     <div>
       {showCompensationPage ? (
         <CompensationPage />
+      ) : showLanguagePage ? (
+        <LanguagePage />
       ) : (
         <div className="flex flex-col w-full md:flex-row pt-[100px] pr-[55px] items-center justify-center">
           <div className="w-full max-w-2xl md:w-1/2 md:pr-8 mb-8 md:mb-0">
@@ -83,8 +91,12 @@ export default function CodingExperiencePage() {
             </div>
           </div>
 
-          <div className="absolute bottom-4 right-4 flex items-center">
-            <button className="text-white font-bold hover:text-[#d6adff] transition-colors duration-300 p-2 bg-[#cf9fff] rounded-l-md">
+          {/*Footer */}
+          <div className="fixed bottom-0 right-0 flex items-center w-full justify-end p-4">
+            <button
+              className="text-white font-bold hover:text-[#d6adff] transition-colors duration-300 p-2 bg-[#cf9fff] rounded-l-md"
+              onClick={goToLanguagePage}
+            >
               <SlArrowUp className="h-4 w-6" />
             </button>
             <div className="border-r-[1.5px] border-[#aa72e3] h-8"></div>

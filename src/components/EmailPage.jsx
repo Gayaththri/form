@@ -52,19 +52,20 @@ export default function EmailPage() {
             </div>
           </div>
 
-          <div className="absolute bottom-4 right-4 flex items-center">
+          {/*Footer */}
+          <div className="fixed bottom-0 right-0 flex items-center w-full justify-end p-4">
             <button
-              className="text-white hover:text-[#d6adff] transition-colors duration-300 p-2 bg-[#cf9fff] rounded-l-lg"
+              className="text-white font-bold hover:text-[#d6adff] transition-colors duration-300 p-2 bg-[#cf9fff] rounded-l-md"
               onClick={goToNamePage}
             >
               <SlArrowUp className="h-4 w-6" />
             </button>
             <div className="border-r-[1.5px] border-[#aa72e3] h-8"></div>
             <button
-              className="text-white hover:text-[#d6adff] transition-colors duration-300 p-2 bg-[#cf9fff] rounded-r-lg"
+              className="text-white hover:text-[#d6adff] transition-colors duration-300 p-2 bg-[#cf9fff] rounded-r-md"
               onClick={goToCountryPage}
             >
-              <SlArrowDown className="h-4 w-6" />
+              <SlArrowDown className="h-4 w-6 font-extrabold" />
             </button>
             <a
               href="https://www.typeform.com/"

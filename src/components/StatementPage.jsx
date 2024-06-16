@@ -2,10 +2,16 @@ import { useState } from "react";
 import { IoIosArrowRoundForward } from "react-icons/io";
 import LinkedInPage from "./LinkedInPage";
 import { SlArrowDown, SlArrowUp } from "react-icons/sl";
+import CompensationPage from "./CompensationPage";
 
 export default function StatementPage() {
   const [accepted, setAccepted] = useState(null);
   const [showLinkedInPage, setShowLinkedInPage] = useState(false);
+  const [showCompensationPage, setShowCompensationPage] = useState(false);
+
+  const goToCompensationPage = () => {
+    setShowCompensationPage(true);
+  };
 
   const goToLinkedInPage = () => {
     setShowLinkedInPage(true);
@@ -19,6 +25,8 @@ export default function StatementPage() {
     <div>
       {showLinkedInPage ? (
         <LinkedInPage />
+      ) : showCompensationPage ? (
+        <CompensationPage />
       ) : (
         <div className="flex flex-col w-full md:flex-row pt-[130px] pr-[35px] items-center justify-center relative">
           <div className="w-full max-w-3xl md:pr-5 mr-14 mb-8">
@@ -87,7 +95,10 @@ export default function StatementPage() {
           </div>
 
           <div className="fixed bottom-4 right-4 flex items-center">
-            <button className="text-white font-bold hover:text-[#d6adff] transition-colors duration-300 p-2 bg-[#cf9fff] rounded-l-md">
+            <button
+              className="text-white font-bold hover:text-[#d6adff] transition-colors duration-300 p-2 bg-[#cf9fff] rounded-l-md"
+              onClick={goToCompensationPage}
+            >
               <SlArrowUp className="h-4 w-6" />
             </button>
             <div className="border-r-[1.5px] border-[#aa72e3] h-8"></div>

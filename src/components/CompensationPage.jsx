@@ -3,13 +3,20 @@ import { IoIosArrowRoundForward } from "react-icons/io";
 import compensationImage from "../assets/compensation.png";
 import StatementPage from "./StatementPage";
 import { SlArrowDown, SlArrowUp } from "react-icons/sl";
+import CodingExperiencePage from "./CodingExperiencePage";
 
 export default function CompensationPage() {
   const [selectedCompensation, setSelectedCompensation] = useState("");
   const [showStatementPage, setShowStatementPage] = useState(false);
+  const [showCodingExperiencePage, setShowCodingExperiencePage] =
+    useState(false);
 
   const goToStatementPage = () => {
     setShowStatementPage(true);
+  };
+
+  const goToCodingExperiencePage = () => {
+    setShowCodingExperiencePage(true);
   };
 
   const handleCompensationChange = (compensation) => {
@@ -20,6 +27,8 @@ export default function CompensationPage() {
     <div>
       {showStatementPage ? (
         <StatementPage />
+      ) : showCodingExperiencePage ? (
+        <CodingExperiencePage />
       ) : (
         <div className="flex flex-col w-full md:flex-row pt-[90px] pr-[55px] items-center justify-center relative pl-10">
           <div className="w-full max-w-2xl md:w-1/2 md:pr-8 mb-8 md:mb-0">
@@ -110,7 +119,10 @@ export default function CompensationPage() {
           </div>
 
           <div className="fixed bottom-4 right-4 flex items-center">
-            <button className="text-white font-bold hover:text-[#d6adff] transition-colors duration-300 p-2 bg-[#cf9fff] rounded-l-md">
+            <button
+              className="text-white font-bold hover:text-[#d6adff] transition-colors duration-300 p-2 bg-[#cf9fff] rounded-l-md"
+              onClick={goToCodingExperiencePage}
+            >
               <SlArrowUp className="h-4 w-6" />
             </button>
             <div className="border-r-[1.5px] border-[#aa72e3] h-8"></div>

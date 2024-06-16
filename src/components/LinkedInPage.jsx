@@ -2,10 +2,16 @@ import { useState } from "react";
 import { IoIosArrowRoundForward } from "react-icons/io";
 import CompletePage from "./CompletePage";
 import { SlArrowDown, SlArrowUp } from "react-icons/sl";
+import StatementPage from "./StatementPage";
 
 export default function LinkedInPage() {
   const [linkedinURL, setLinkedinURL] = useState("");
   const [showCompletePage, setShowCompletePage] = useState(false);
+  const [showStatementPage, setShowStatementPage] = useState(false);
+
+  const goToStatementPage = () => {
+    setShowStatementPage(true);
+  };
 
   const goToCompletePage = () => {
     setShowCompletePage(true);
@@ -19,6 +25,8 @@ export default function LinkedInPage() {
     <div>
       {showCompletePage ? (
         <CompletePage />
+      ) : showStatementPage ? (
+        <StatementPage />
       ) : (
         <div className="flex flex-col w-full md:flex-row pt-[180px] pr-[30px] items-center justify-center relative">
           <div className="w-full max-w-3xl md:pr-5 mb-9">
@@ -29,7 +37,7 @@ export default function LinkedInPage() {
             </h1>
 
             <p className="text-gray-500 text-xl mb-4 ml-[2rem]">
-              Here's a snipper link to make your life easy -
+              Heres a snipper link to make your life easy -
               <a
                 href="https://www.linkedin.com"
                 target="_blank"
@@ -38,7 +46,7 @@ export default function LinkedInPage() {
               >
                 linkedin.com
               </a>
-              &nbsp; (It'll open in a new tab) 🚀
+              &nbsp; (Itll open in a new tab) 🚀
             </p>
 
             <input
@@ -64,7 +72,10 @@ export default function LinkedInPage() {
           </div>
 
           <div className="fixed bottom-4 right-4 flex items-center">
-            <button className="text-white font-bold hover:text-[#d6adff] transition-colors duration-300 p-2 bg-[#cf9fff] rounded-l-md">
+            <button
+              className="text-white font-bold hover:text-[#d6adff] transition-colors duration-300 p-2 bg-[#cf9fff] rounded-l-md"
+              onClick={goToStatementPage}
+            >
               <SlArrowUp className="h-4 w-6" />
             </button>
             <div className="border-r-[1.5px] border-[#aa72e3] h-8"></div>
