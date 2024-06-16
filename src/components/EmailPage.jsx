@@ -51,7 +51,7 @@ export default function EmailPage() {
               <button className="bg-[#cf9fff] hover:bg-[#d6adff] text-white px-4 py-2 rounded-md transition duration-300 font-bold">
                 OK
               </button>
-              <p className="mt-4 text-sm text-gray-500">press Enter ↵</p>
+              <p className="mt-1 text-xs text-[#191b33]">press Enter ↵</p>
             </div>
           </div>
 

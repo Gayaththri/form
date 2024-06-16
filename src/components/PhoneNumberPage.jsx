@@ -103,23 +103,26 @@ export default function PhoneNumberPage() {
                 {dropdownOpen && (
                   <div
                     ref={dropdownRef}
-                    className="absolute left-0 w-full bg-white border-[#8000ff] shadow-md z-10 overflow-auto max-h-60 mt-2"
+                    className="absolute z-10 w-full bg-white border border-[#cf9fff] max-h-60 overflow-y-auto mt-2 rounded-md"
                   >
                     {countries.map((country) => (
                       <div
                         key={country.cca2}
-                        className="px-4 py-2 flex items-center justify-between hover:bg-[#f1e2ff] cursor-pointer border-b-[#cf9fff] border-b border-[#8000ff] rounded-none"
+                        className="px-4 py-2 text-xl text-[#cf9fff] border-b border-[#cf9fff] cursor-pointer hover:bg-[#f1e2ff]"
                         onClick={() => handleCountryChange(country)}
                       >
-                        <div className="flex items-center space-x-2">
-                          <img
-                            src={country.flags.png}
-                            alt="Country Flag"
-                            className="w-6 h-6"
-                          />
-                          <span className="w-24 truncate">
-                            {country.name.common}
-                          </span>
+                        <div className="flex justify-between items-center space-x-2">
+                          <div className="flex flex-row">
+                            <img
+                              src={country.flags.png}
+                              alt="Country Flag"
+                              className="w-6 h-6 mr-2"
+                            />
+                            <span className="w-30 truncate">
+                              {country.name.common}
+                            </span>
+                          </div>
+
                           <span className="w-20 truncate">
                             {country.idd.root}
                             {country.idd.suffixes}
@@ -141,7 +144,10 @@ export default function PhoneNumberPage() {
               </div>
             </div>
             <div className="flex items-center space-x-4 ml-[3rem]">
-              <button className="bg-[#cf9fff] hover:bg-[#d6adff] text-white px-4 py-2 rounded-md transition duration-300 font-bold text-xl">
+              <button
+                className="bg-[#cf9fff] hover:bg-[#d6adff] text-white px-4 py-2 rounded-md transition duration-300 font-bold text-xl"
+                onClick={goToLanguagePage}
+              >
                 OK
               </button>
               <p className="text-xs text-[#191b33]">Press Enter ↵</p>

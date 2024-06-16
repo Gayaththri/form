@@ -75,7 +75,7 @@ export default function CountryPage() {
                   {countries.map((country, index) => (
                     <li
                       key={index}
-                      className="px-4 py-2 text-xl text-[#cf9fff] border-b border-[#cf9fff] cursor-pointer hover:bg-[#f1e2ff]"
+                      className=" px-4 py-2 text-xl text-[#cf9fff] border-b border-[#cf9fff] cursor-pointer hover:bg-[#f1e2ff]"
                       onClick={() => handleCountryChange(country.name)}
                     >
                       {country.name}
