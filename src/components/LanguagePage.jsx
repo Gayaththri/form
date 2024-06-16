@@ -35,7 +35,7 @@ export default function LanguagePage() {
       ) : showPhoneNumberPage ? (
         <PhoneNumberPage />
       ) : (
-        <div className="flex flex-col w-full md:flex-row pt-[100px] pr-[55px] items-center justify-center">
+        <div className="flex flex-col w-full md:flex-row pt-[80px] pr-[55px] items-center justify-center">
           <div className="w-full max-w-2xl md:w-1/2 md:pr-8 mb-8 md:mb-0">
             <h1 className="font-Lexe text-2xl mb-4 text-[#191b3a] flex items-center">
               <span className="text-[#cf9fff] text-sm">5 </span>
