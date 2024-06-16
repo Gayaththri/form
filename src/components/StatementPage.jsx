@@ -20,12 +20,12 @@ export default function StatementPage() {
       {showLinkedInPage ? (
         <LinkedInPage />
       ) : (
-        <div className="flex flex-col md:flex-row p-[80px] items-center justify-center relative">
-          <div className="w-full max-w-3xl md:pr-5 mr-14 mb-10">
-            <div className="flex items-center mb-4">
-              <span className="text-[#cf9fff] text-xl mr-2">8</span>
-              <IoIosArrowRoundForward className="text-[#cf9fff] text-xl mr-4" />
-              <h1 className="font-Lexe text-2xl text-[rgb(25,27,58)]">
+        <div className="flex flex-col w-full md:flex-row pt-[130px] pr-[35px] items-center justify-center relative">
+          <div className="w-full max-w-3xl md:pr-5 mr-14 mb-8">
+            <div className="flex items-center mb-3">
+              <span className="text-[#cf9fff] text-lg mr-1">8</span>
+              <IoIosArrowRoundForward className="text-[#cf9fff] mr-2 text-sm size-6 inline-block" />
+              <h1 className="font-Lexe text-2xl text-[#191b3a]">
                 Certifying Statement*
               </h1>
             </div>
@@ -39,7 +39,7 @@ export default function StatementPage() {
               application.
             </p>
 
-            <div className="grid grid-cols-1 gap-4 text-xl ml-[3.5rem]">
+            <div className="grid grid-cols-1 gap-1 text-xl ml-[3.5rem] w-[30%]">
               {[
                 {
                   id: "A",
@@ -52,11 +52,22 @@ export default function StatementPage() {
               ].map((option) => (
                 <label
                   key={option.id}
-                  className={`flex items-center text-[#cf9fff] mb-1 border border-[#cf9fff] rounded-md p-2 cursor-pointer ${
-                    accepted === (option.id === "A") ? "bg-[#cf9fff]" : ""
+                  className={`flex items-center text-xl text-[#cf9fff] bg-[#faf5ff] border border-[#cf9fff] rounded-md p-2 hover:bg-[#f1e2ff] cursor-pointer ${
+                    accepted === option.id
+                      ? "bg-[#cf9fff] border-[#aa72e3]"
+                      : ""
                   }`}
-                  onClick={() => handleAcceptanceChange(option.id === "A")}
+                  onClick={() => handleAcceptanceChange(option.id)}
                 >
+                  <span className="text-sm border border-[#cf9fff] rounded-sm mr-2 px-[5px] bg-white">
+                    <span
+                      className={
+                        accepted === option.id ? " text-white bg-[#aa72e3]" : ""
+                      }
+                    >
+                      {option.id}
+                    </span>
+                  </span>
                   <span>{option.text}</span>
                 </label>
               ))}
@@ -75,7 +86,7 @@ export default function StatementPage() {
             </div>
           </div>
 
-          <div className="absolute bottom-4 right-4 flex items-center">
+          <div className="fixed bottom-4 right-4 flex items-center">
             <button className="text-white font-bold hover:text-[#d6adff] transition-colors duration-300 p-2 bg-[#cf9fff] rounded-l-md">
               <SlArrowUp className="h-4 w-6" />
             </button>

@@ -32,20 +32,20 @@ export default function CodingExperiencePage() {
               {[
                 {
                   id: "A",
-                  text: "A. No experience (I have never programmed before.)",
+                  text: "No experience (I have never programmed before.)",
                 },
                 {
                   id: "B",
-                  text: "B. Beginner (I have played with some introductory coding lessons and tutorials.)",
+                  text: "Beginner (I have played with some introductory coding lessons and tutorials.)",
                 },
                 {
                   id: "C",
-                  text: "C. Intermediate (I have completed some coding classes or tutorials.)",
+                  text: "Intermediate (I have completed some coding classes or tutorials.)",
                 },
-                { id: "D", text: "D. Advanced (I can build applications.)" },
+                { id: "D", text: "Advanced (I can build applications.)" },
                 {
                   id: "E",
-                  text: "E. Professional (I am an experienced software engineer.)",
+                  text: "Professional (I am an experienced software engineer.)",
                 },
               ].map((option) => (
                 <label
@@ -76,10 +76,7 @@ export default function CodingExperiencePage() {
             <div className="flex items-center mt-4">
               <button
                 onClick={goToCompensationPage}
-                className={`bg-[#cf9fff] hover:bg-[#d6adff] text-white px-4 py-2 rounded-md transition duration-300 font-bold ${
-                  selectedLevel ? "" : "opacity-50 cursor-not-allowed"
-                }`}
-                disabled={!selectedLevel}
+                className="bg-[#cf9fff] text-xl hover:bg-[#d6adff] text-white px-4 py-2 rounded-md transition duration-300 font-bold"
               >
                 OK
               </button>
