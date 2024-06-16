@@ -81,69 +81,67 @@ export default function PhoneNumberPage() {
               <span className="text-[#cf9fff] text-sm mr-1">4 </span>
               <IoIosArrowRoundForward className="text-[#cf9fff] mr-2 text-sm inline-block size-6" />
               <span className="ml-2">What is your phone number?</span>
-              <div className="flex items-center space-x-2">
-                {selectedCountry && (
-                  <>
-                    <img
-                      src={selectedCountry.flags.png}
-                      alt="Country Flag"
-                      className="w-10 h-8 inline-block"
-                    />
-                    <SlArrowDown
-                      className="text-[#cf9fff] text-sm inline-block ml-1"
-                      onClick={handleToggleDropdown}
-                    />
-                  </>
-                )}
-              </div>
             </h1>
-            <div className="mb-4 ml-[3rem] relative">
-              {dropdownOpen && (
-                <div
-                  ref={dropdownRef}
-                  className="absolute left-0 w-32 bg-white border-b-[#cf9fff] border-[#8000ff] shadow-md z-10 overflow-auto max-h-60 mt-12"
-                >
-                  {countries.map((country) => (
-                    <div
-                      key={country.cca2}
-                      className="px-4 py-2 flex items-center justify-between hover:bg-gray-200 cursor-pointer"
-                      onClick={() => handleCountryChange(country)}
-                    >
-                      <div className="flex items-center space-x-2">
-                        <img
-                          src={country.flags.png}
-                          alt="Country Flag"
-                          className="w-6 h-6"
-                        />
-                        <span>{country.name.common}</span>
-                        <span>
-                          {country.idd.root}
-                          {country.idd.suffixes}
-                        </span>
-                      </div>
-                    </div>
-                  ))}
+            <div className="flex items-center mb-4 ml-[3rem] space-x-4">
+              {selectedCountry && (
+                <div className="flex items-center space-x-2">
+                  <img
+                    src={selectedCountry.flags.png}
+                    alt="Country Flag"
+                    className="w-10 h-8 inline-block"
+                  />
+                  <SlArrowDown
+                    className="text-[#cf9fff] text-2xl inline-block cursor-pointer"
+                    onClick={handleToggleDropdown}
+                  />
                 </div>
               )}
-            </div>
-
-            <div className="flex flex-col items-center space-y-4">
-              <input
-                type="tel"
-                id="phoneNumber"
-                name="phoneNumber"
-                value={phoneNumber}
-                onChange={handlePhoneNumberChange}
-                placeholder="Enter your phone number"
-                className="border-b-[#cf9fff] text-[#cf9fff] border-b border-[#8000ff] rounded-none px-4 py-2 w-full focus:outline-none placeholder-[#f1e2ff] text-2xl caret-[#cf9fff]"
-                pattern="[0-9]*"
-              />
-              <div className="flex items-center space-x-4">
-                <button className="bg-[#cf9fff] hover:bg-[#d6adff] text-white px-4 py-2 rounded-md transition duration-300 font-bold">
-                  OK
-                </button>
-                <p className="text-sm text-gray-500">Press Enter ↵</p>
+              <div className="relative border-b-[#cf9fff] border-[#8000ff] rounded-none px-4 py-2 w-full focus:outline-none placeholder-[#f1e2ff] caret-[#cf9fff] cursor-pointer flex-grow">
+                {dropdownOpen && (
+                  <div
+                    ref={dropdownRef}
+                    className="absolute left-0 w-full bg-white border-[#8000ff] shadow-md z-10 overflow-auto max-h-60 mt-2"
+                  >
+                    {countries.map((country) => (
+                      <div
+                        key={country.cca2}
+                        className="px-4 py-2 flex items-center justify-between hover:bg-[#f1e2ff] cursor-pointer border-b-[#cf9fff] border-b border-[#8000ff] rounded-none"
+                        onClick={() => handleCountryChange(country)}
+                      >
+                        <div className="flex items-center space-x-2">
+                          <img
+                            src={country.flags.png}
+                            alt="Country Flag"
+                            className="w-6 h-6"
+                          />
+                          <span className="w-24 truncate">
+                            {country.name.common}
+                          </span>
+                          <span className="w-20 truncate">
+                            {country.idd.root}
+                            {country.idd.suffixes}
+                          </span>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                )}
+                <input
+                  type="tel"
+                  id="phoneNumber"
+                  name="phoneNumber"
+                  value={phoneNumber}
+                  onChange={handlePhoneNumberChange}
+                  placeholder="Enter your phone number"
+                  className="border-b-[#cf9fff] text-[#cf9fff] border-b border-[#8000ff] rounded-none px-4 py-2 w-full focus:outline-none placeholder-[#f1e2ff] text-2xl caret-[#cf9fff] pl-0"
+                />
               </div>
+            </div>
+            <div className="flex items-center space-x-4 ml-[3rem]">
+              <button className="bg-[#cf9fff] hover:bg-[#d6adff] text-white px-4 py-2 rounded-md transition duration-300 font-bold text-xl">
+                OK
+              </button>
+              <p className="text-xs text-[#191b33]">Press Enter ↵</p>
             </div>
           </div>
 

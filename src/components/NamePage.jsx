@@ -54,7 +54,7 @@ export default function NamePage() {
             </div>
 
             <div className="flex items-center space-x-4 ml-[3.5rem]">
-              <button className="bg-[#cf9fff] hover:bg-[#d6adff] text-white px-4 py-2 rounded-md transition duration-300 font-bold">
+              <button className="bg-[#cf9fff] text-xl hover:bg-[#d6adff] text-white px-4 py-2 rounded-md transition duration-300 font-bold">
                 OK
               </button>
               <p className="text-xs text-[#191b33]">press Enter ↵</p>

@@ -84,7 +84,7 @@ export default function CountryPage() {
 
             <div className="flex items-center space-x-4 ml-[3.5rem]">
               <button
-                className="bg-[#cf9fff] hover:bg-[#d6adff] text-white px-4 py-2 rounded-md transition duration-300 font-bold"
+                className="bg-[#cf9fff] hover:bg-[#d6adff] text-white px-4 py-2 rounded-md transition duration-300 font-bold text-xl"
                 onClick={goToPhoneNumberPage}
               >
                 OK

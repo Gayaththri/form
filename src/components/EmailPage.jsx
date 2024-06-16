@@ -24,17 +24,17 @@ export default function EmailPage() {
       ) : showNamePage ? (
         <NamePage />
       ) : (
-        <div className="flex flex-col w-full md:flex-row p-[100px] items-center justify-center">
+        <div className="flex flex-col w-full md:flex-row p-[150px] pl-10 items-center justify-center">
           <div className="w-full max-w-2xl md:w-1/2 md:pr-8 mb-8 md:mb-0">
             <h1 className="font-Lexe text-2xl mb-4 text-[#191b3a] flex items-center">
               <span className="text-[#cf9fff] text-sm">2 </span>
               <IoIosArrowRoundForward className="text-[#cf9fff] mr-2 text-sm inline-block" />
               Whats your email address?
             </h1>
-            <p className="text-gray-500 text-xl mb-4">
+            <p className="text-gray-500 text-xl mb-4 ml-[3rem]">
               This is how well contact you.
             </p>
-            <div className="mb-4">
+            <div className="mb-4 ml-[3rem]">
               <input
                 type="email"
                 id="email"
@@ -44,7 +44,7 @@ export default function EmailPage() {
               />
             </div>
 
-            <div className="flex items-center space-x-4">
+            <div className="flex items-center space-x-3 ml-[3rem]">
               <button className="bg-[#cf9fff] hover:bg-[#d6adff] text-white px-4 py-2 rounded-md transition duration-300 font-bold">
                 OK
               </button>

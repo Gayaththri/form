@@ -84,7 +84,7 @@ export default function StatementPage() {
             <div className="flex items-center mt-4 ml-[3.5rem]">
               <button
                 onClick={goToLinkedInPage}
-                className={`bg-[#cf9fff] hover:bg-[#d6adff] text-white px-4 py-2 rounded-md transition duration-300 font-bold ${
+                className={`bg-[#cf9fff] hover:bg-[#d6adff] text-white px-4 py-2 rounded-md transition duration-300 font-bold text-xl ${
                   accepted !== null ? "" : "opacity-50 cursor-not-allowed"
                 }`}
                 disabled={accepted === null}

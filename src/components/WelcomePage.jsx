@@ -16,13 +16,13 @@ export default function WelcomePage() {
   useEffect(() => {
     const timeout = setTimeout(() => {
       setLoading(false);
-      document.body.style.overflow = "unset"; // Resetting overflow to enable scrolling
+      document.body.style.overflow = "unset";
     }, 2000);
     return () => clearTimeout(timeout);
   }, []);
 
   useEffect(() => {
-    document.body.style.overflow = loading ? "hidden" : "unset"; // Controlling overflow based on loading state
+    document.body.style.overflow = loading ? "hidden" : "unset";
   }, [loading]);
 
   return (
@@ -34,7 +34,7 @@ export default function WelcomePage() {
             <img
               src={logo}
               alt="Logo"
-              className="w-32 mb-2 items-center justify-center"
+              className="w-32 mb-2 md:w-32 items-center justify-center"
             />
             <div className="w-[10%] h-1 bg-gray-200 rounded-full overflow-hidden relative">
               <div
@@ -50,7 +50,11 @@ export default function WelcomePage() {
                 showNamePage ? "opacity-0" : "opacity-100"
               } transition-opacity duration-500 ease-out`}
             >
-              <div className="flex flex-col w-full md:flex-row pt-[140px] pr-[35px] pl-[18px] items-center justify-center">
+              <div
+                className={`flex flex-col w-full md:flex-row ${
+                  loading ? "pt-[80px]" : "pt-[140px]"
+                } pr-[35px] pl-[18px] items-center justify-center`}
+              >
                 <div className="max-w-2xl md:w-1/2 mb-8 md:mb-0">
                   <h1 className="font-Lexe text-4xl font-bold mb-4 text-[#191b3a]">
                     Launch your Data Career in <br /> Weeks, not Years{" "}
