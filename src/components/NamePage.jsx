@@ -1,5 +1,5 @@
 /**
- * NamePage Component - Allows users to input their name.
+ * NamePage Component - Allows users to input their names.
  */
 import { useState } from "react";
 import EmailPage from "./EmailPage";

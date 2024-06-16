@@ -21,13 +21,13 @@ export default function WelcomePage() {
   useEffect(() => {
     const timeout = setTimeout(() => {
       setLoading(false);
-      document.body.style.overflow = "unset";
+      document.body.style.overflow = "hidden";
     }, 2000);
     return () => clearTimeout(timeout);
   }, []);
 
   useEffect(() => {
-    document.body.style.overflow = loading ? "hidden" : "unset";
+    document.body.style.overflow = loading ? "hidden" : "hidden";
   }, [loading]);
 
   return (
@@ -41,7 +41,7 @@ export default function WelcomePage() {
               alt="Logo"
               className="w-32 mb-2 md:w-32 items-center justify-center"
             />
-            <Loader/>
+            <Loader />
           </div>
         ) : (
           <div className="relative">
