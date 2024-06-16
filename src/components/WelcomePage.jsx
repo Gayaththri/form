@@ -4,6 +4,7 @@ import NamePage from "./NamePage";
 import { FaUserFriends } from "react-icons/fa";
 import logo from "../assets/Logo.png";
 import Navbar from "./Navbar";
+import Loader from "./Loader";
 
 export default function WelcomePage() {
   const [showNamePage, setShowNamePage] = useState(false);
@@ -36,12 +37,7 @@ export default function WelcomePage() {
               alt="Logo"
               className="w-32 mb-2 md:w-32 items-center justify-center"
             />
-            <div className="w-[10%] h-1 bg-gray-200 rounded-full overflow-hidden relative">
-              <div
-                className="h-full bg-[#191b33] animate-loading"
-                style={{ width: "50%" }}
-              ></div>
-            </div>
+            <Loader/>
           </div>
         ) : (
           <div className="relative">
