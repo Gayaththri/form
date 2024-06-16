@@ -1,3 +1,6 @@
+/**
+ * CountryPage Component - Displays a form to select the user's country.
+ */
 import { useState, useEffect } from "react";
 import { IoIosArrowRoundForward } from "react-icons/io";
 import PhoneNumberPage from "./PhoneNumberPage";

@@ -1,3 +1,7 @@
+/**
+ * This component serves as the main landing page of the application.
+ * It contains loading state, main content, and navigation to NamePage.
+ */
 import { useState, useEffect } from "react";
 import Image from "../assets/welcome.png";
 import NamePage from "./NamePage";

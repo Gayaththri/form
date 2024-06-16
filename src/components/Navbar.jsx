@@ -1,3 +1,6 @@
+/**
+ * Navbar Component - Displays the logo in the navigation bar.
+ */
 import Logo from "../assets/Logo.png";
 
 export default function Navbar() {

@@ -1,3 +1,6 @@
+/**
+ * Loader Component - Displays a loading animation.
+ */
 import "../index.css";
 
 export default function Loader() {

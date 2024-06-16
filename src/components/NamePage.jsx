@@ -1,3 +1,6 @@
+/**
+ * NamePage Component - Allows users to input their name.
+ */
 import { useState } from "react";
 import EmailPage from "./EmailPage";
 import { IoIosArrowRoundForward } from "react-icons/io";

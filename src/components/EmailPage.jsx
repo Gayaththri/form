@@ -1,3 +1,6 @@
+/**
+ * EmailPage Component - Allows users to input their email address.
+ */
 import { useState } from "react";
 import NamePage from "./NamePage";
 import CountryPage from "./CountryPage";

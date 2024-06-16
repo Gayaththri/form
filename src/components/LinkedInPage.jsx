@@ -1,3 +1,6 @@
+/**
+ * LinkedInPage Component - Allows the user to input their LinkedIn URL.
+ */
 import { useState } from "react";
 import { IoIosArrowRoundForward } from "react-icons/io";
 import CompletePage from "./CompletePage";

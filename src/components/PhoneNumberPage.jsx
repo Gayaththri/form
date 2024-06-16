@@ -1,3 +1,6 @@
+/**
+ * PhoneNumberPage Component - Allows the user to input their phone number and select their country.
+ */
 import { useState, useEffect, useRef } from "react";
 import { IoIosArrowRoundForward } from "react-icons/io";
 import LanguagePage from "./LanguagePage";

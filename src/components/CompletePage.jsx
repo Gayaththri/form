@@ -1,3 +1,6 @@
+/**
+ * CompletePage Component - Displays a message thanking the user for applying and provides social media links and an option to create a typeform.
+ */
 import { FaTwitter } from "react-icons/fa";
 import { FaFacebookF } from "react-icons/fa6";
 import { FaLinkedinIn } from "react-icons/fa";

@@ -1,3 +1,6 @@
+/**
+ * CodingExperiencePage Component - Allows users to select their level of coding experience.
+ */
 import { useState } from "react";
 import { IoIosArrowRoundForward } from "react-icons/io";
 import CompensationPage from "./CompensationPage";

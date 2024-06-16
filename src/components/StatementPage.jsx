@@ -1,3 +1,6 @@
+/**
+ * StatementPage Component - Allows the user to certify their application.
+ */
 import { useState } from "react";
 import { IoIosArrowRoundForward } from "react-icons/io";
 import LinkedInPage from "./LinkedInPage";

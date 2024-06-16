@@ -1,3 +1,6 @@
+/**
+ * CompensationPage Component - Allows users to select their current annual compensation
+ */
 import { useState } from "react";
 import { IoIosArrowRoundForward } from "react-icons/io";
 import compensationImage from "../assets/compensation.png";

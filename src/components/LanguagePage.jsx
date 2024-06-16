@@ -1,3 +1,6 @@
+/**
+ * LanguagePage Component - Allows the user to select programming languages and frameworks they are familiar with.
+ */
 import { useState } from "react";
 import { IoIosArrowRoundForward } from "react-icons/io";
 import CodingExperiencePage from "./CodingExperiencePage";
@@ -83,7 +86,7 @@ export default function LanguagePage() {
                         ? "text-white text-sm border border-[#cf9fff] rounded-sm mr-2 px-[5px] bg-[#cf9fff]"
                         : "text-[#cf9fff] text-sm border border-[#cf9fff] rounded-sm mr-2 px-[5px] bg-white"
                     }
-                  > 
+                  >
                     {alphabet[index]}
                   </span>
                   <span className="ml-1">{language}</span>
